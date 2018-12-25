@@ -20,5 +20,5 @@ def log_unsuccessful_step(step_number):
 def log_results(Flow, flow_value, total_cost):
     print('resulting flow:')
     print(Flow)
-    print('flow_value:', flow_value)
-    print('total_cost:', total_cost)
+    print('flow value:', flow_value)
+    print('total cost:', total_cost)
