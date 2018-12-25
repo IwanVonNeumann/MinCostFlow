@@ -1,4 +1,4 @@
-def log_successful_step(step_number, G_inc, path, flow_inc, Flow, flow_value):
+def log_successful_step(step_number, G_inc, path, flow_inc, Flow, flow_value, current_cost):
     print('step', step_number)
     print('incremental:')
     print(G_inc)
@@ -7,6 +7,7 @@ def log_successful_step(step_number, G_inc, path, flow_inc, Flow, flow_value):
     print('flow:')
     print(Flow)
     print('flow value:', flow_value)
+    print('current cost:', current_cost)
     print('-' * 50)
 
 

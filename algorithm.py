@@ -82,7 +82,8 @@ def find_min_cost_flow(Cap, Cost, target_flow_value, log=False):
         flow_value += flow_inc
 
         if log:
-            log_successful_step(step_number, G_inc, path, flow_inc, Flow, flow_value)
+            current_cost = calc_flow_cost(Flow, Cost)
+            log_successful_step(step_number, G_inc, path, flow_inc, Flow, flow_value, current_cost)
 
     return Flow
 
