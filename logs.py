@@ -2,7 +2,7 @@ def log_successful_step(step_number, G_inc, path, flow_inc, Flow, flow_value, cu
     print('step', step_number)
     print('incremental:')
     print(G_inc)
-    print('path:', path)
+    print('path:', format_path(path))
     print('flow inc value:', flow_inc)
     print('flow:')
     print(Flow)
@@ -22,3 +22,9 @@ def log_results(Flow, flow_value, total_cost):
     print(Flow)
     print('flow value:', flow_value)
     print('total cost:', total_cost)
+
+
+def format_path(path):
+    V = [v_1 for v_1, v_2 in path] + [path[-1][1]]
+    V = [str(v + 1) for v in V]
+    return '-'.join(V)
