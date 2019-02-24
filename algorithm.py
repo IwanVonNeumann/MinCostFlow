@@ -70,7 +70,6 @@ def find_min_cost_flow(Cap, Cost, target_flow_value, log=False):
         step_number += 1
 
         G_inc = make_incremental_distances_graph(Cap, Flow, Cost)
-        print(G_inc)
         path = find_shortest_path(G_inc, source=0, target=n - 1)
 
         if path is None:
