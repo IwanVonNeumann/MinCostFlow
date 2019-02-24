@@ -26,8 +26,9 @@ def build_direct_reverse_edges(Cap, Flow):
 def make_incremental_distances_graph(Cap, Flow, Cost):
     direct_edges, reverse_edges = build_direct_reverse_edges(Cap, Flow)
 
-    G = np.where(direct_edges, Cost, 0) + np.where(reverse_edges, Cost.T, 0) * (-1)
-    G = np.where(G == 0, inf, G)
+    G = np.full_like(Cost, fill_value=inf)
+    G = np.where(direct_edges, Cost, G)
+    G = np.where(reverse_edges, Cost.T * (-1), G)
 
     return G
 
@@ -69,6 +70,7 @@ def find_min_cost_flow(Cap, Cost, target_flow_value, log=False):
         step_number += 1
 
         G_inc = make_incremental_distances_graph(Cap, Flow, Cost)
+        print(G_inc)
         path = find_shortest_path(G_inc, source=0, target=n - 1)
 
         if path is None:
